@@ -1,19 +1,42 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, StyleSheet } from 'react-native';
+import TextStyled from './TextStyled';
+
+
+const styles = StyleSheet.create({
+
+  container: {
+
+    padding: 20,
+    paddingBottom: 5,
+    paddingTop: 5,
+  },
+  textStrong: {
+    fontWeight: 'bold',
+    color: 'blue'
+  }
+
+})
+
+
 
 const RepoItem = ({repo}) => {
+
   return (
-    <View style={{ marginBottom: 15 }}>
-        <Text>{repo.fullName}</Text>
-        <Text>{repo.id}</Text>
-        <Text>{repo.description}</Text>
-        <Text>{repo.language}</Text>
-        <Text>{repo.starGazesCount}</Text>
-        <Text>{repo.reviews}</Text>
-        <Text>{repo.forks}</Text>
-        <Text>{repo.rating}</Text>
+    <View style={styles.container}>
+        <TextStyled bold children={repo.fullName} />
+        <TextStyled gray children={repo.description}/>
+        <TextStyled gray children={repo.language}/>
+        <TextStyled gray children={repo.starGazesCount}/>
+        <TextStyled gray children={repo.reviews}/>
+        <TextStyled gray children={repo.forks}/>
+        <TextStyled gray children={repo.rating}/>
      </View>
   )
+
+  
 }
+
+
 
 export default RepoItem
